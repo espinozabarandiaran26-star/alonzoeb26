@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alfredo Alonzo Espinoza B. | Diseño de Mobiliario</title>
+    <meta name="description" content="Portafolio de arquitectura interior y diseño de mobiliario por Alfredo Alonzo Espinoza Barandiaran.">
+    <style>
+        /* --- VARIABLES & RESET --- */
+        :root {
+            --bg-color: #ffffff;
+            --text-primary: #2c2c2c;
+            --text-secondary: #757575;
+            --accent-color: #e0e0e0;
+            --font-main: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+            --gap-standard: 2rem;
+            --transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* --- TIPOGRAFÍA --- */
+        h1, h2, h3 { font-weight: 300; letter-spacing: -0.02em; }
+        h1 { font-size: clamp(2.2rem, 5vw, 4.2rem); line-height: 1.1; margin-bottom: 1rem; }
+        h2 { font-size: 1.5rem; color: var(--text-secondary); letter-spacing: 0.05em; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 2rem; }
+        h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+        p { font-size: 1rem; color: var(--text-secondary); max-width: 60ch; }
+        
+        .caption {
+            font-size: 0.8rem;
+            color: #999;
+            margin-top: 0.5rem;
+            display: block;
+            font-weight: 400;
+        }
+
+        /* --- LAYOUT UTILS --- */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        section { padding: 6rem 0; }
+
+        /* --- HERO SECTION --- */
+        header {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            /* Imagen de fondo principal */
+            background-image: url('TOMA FRENTAL GENERAL MEJORADO.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.4); /* Filtro oscuro para leer el texto */
+            z-index: -1;
+        }
+
+        header h1 { text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        header .subtitle { font-size: 1.1rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.95; margin-top: 1rem; }
+
+        /* --- INTRO SECTION --- */
+        .intro-text {
+            text-align: center;
+            padding: 8rem 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .intro-text p { font-size: 1.25rem; font-weight: 300; line-height: 1.8; color: var(--text-primary); }
+
+        /* --- GRIDS & GALLERIES --- */
+        .grid-general {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--gap-standard);
+            margin-bottom: 4rem;
+        }
+
+        .grid-item { position: relative; cursor: pointer; overflow: hidden; }
+        .grid-item img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+            display: block;
+        }
+        .grid-item:hover img { transform: scale(1.03); }
+
+        /* Layout Asimétrico para Vistas Generales */
+        .g-col-8 { grid-column: span 8; height: 600px; }
+        .g-col-4 { grid-column: span 4; height: 600px; display: flex; flex-direction: column; gap: var(--gap-standard); }
+        .g-half-h { height: calc(300px - 1rem); }
+
+        /* Grid de Detalles */
+        .grid-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--gap-standard);
+        }
+        .aspect-square { aspect-ratio: 1/1; }
+
+        /* Grid de Composición */
+        .grid-composition {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        /* --- VIDEO SECTION --- */
+        .video-wrapper {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            background: #000;
+        }
+        video { width: 100%; display: block; }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 6rem 0;
+            border-top: 1px solid var(--accent-color);
+            margin-top: 4rem;
+            text-align: center;
+        }
+        .footer-name { font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--text-primary); }
+        .footer-role { font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 2rem;}
+        
+        .contact-info { display: flex; flex-direction: column; gap: 0.5rem; align-items: center; }
+        .contact-item { color: var(--text-primary); text-decoration: none; font-size: 1rem; transition: 0.3s; }
+        .contact-item:hover { color: #000; opacity: 0.7; }
+        .contact-divider { width: 20px; height: 1px; background: #ccc; margin: 1rem auto; }
+
+        /* --- LIGHTBOX (MODAL) --- */
+        .lightbox {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255,255,255,0.98);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .lightbox.active { opacity: 1; pointer-events: all; }
+        .lightbox img { max-height: 90vh; max-width: 90vw; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .close-lightbox { position: absolute; top: 2rem; right: 2rem; font-size: 2rem; cursor: pointer; color: #333; }
+
+        /* --- ANIMACIONES --- */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: var(--transition); }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .grid-general, .grid-composition { display: flex; flex-direction: column; }
+            .g-col-8, .g-col-4, .g-half-h { width: 100%; height: auto; aspect-ratio: 4/3; }
+            .grid-item { margin-bottom: 1rem; }
+            section { padding: 3rem 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container fade-in">
+            <h1>Diseño y Ejecución<br>de Mobiliario a Medida</h1>
+            <p class="subtitle">Alfredo Alonzo Espinoza Barandiaran</p>
+        </div>
+    </header>
+
+    <section class="container intro-text fade-in">
+        <p>
+            "Este portafolio presenta un sistema de almacenamiento diseñado a medida, enfocado en la funcionalidad, el equilibrio estético y la optimización del espacio interior. El proyecto integra detalles precisos de ebanistería, calidad material y un enfoque de diseño centrado en el usuario."
+        </p>
+    </section>
+
+    <section class="container fade-in">
+        <h2>Vistas Generales</h2>
+        <div class="grid-general">
+            <div class="grid-item g-col-8" onclick="openLightbox(this)">
+                <img src="TOMA FRENTAL GENERAL MEJORADO.jpg" alt="Vista general frontal del closet">
+                <span class="caption">Perspectiva General</span>
+            </div>
+            <div class="g-col-4">
+                <div class="grid-item g-half-h" onclick="openLightbox(this)">
+                    <img src="TOMA LATERAL MEJORADO.jpg" alt="Vista lateral del mobiliario">
+                    <span class="caption">Composición Espacial</span>
+                </div>
+                <div class="grid-item g-half-h" onclick="openLightbox(this)">
+                    <img src="TOMA CAMINANDO MEJORADO.jpg" alt="Perspectiva de circulación">
+                    <span class="caption">Experiencia de Circulación</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container fade-in">
+        <h2>Materialidad y Detalles</h2>
+        <div class="grid-details">
+            <div class="grid-item aspect-square" onclick="openLightbox(this)">
+                <img src="DETALLE CAJÓN MEJORADO.jpg" alt="Detalle de ebanistería en cajón">
+                <span class="caption">Precisión en Ebanistería</span>
+            </div>
+            <div class="grid-item aspect-square" onclick="openLightbox(this)">
+                <img src="DETALLE OBJETOS MEJORADO.jpg" alt="Organización de objetos">
+                <span class="caption">Acabados Materiales</span>
+            </div>
+            <div class="grid-item aspect-square" onclick="openLightbox(this)">
+                <img src="DETALLE ROPA MEJORADO.jpg" alt="Integración de almacenamiento">
+                <span class="caption">Integración de Almacenaje</span>
+            </div>
+            <div class="grid-item aspect-square" onclick="openLightbox(this)">
+                <img src="TOMA DETALLE MEJORADO.jpg" alt="Macro detalle constructivo">
+                <span class="caption">Calidad Constructiva</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="container fade-in">
+        <h2>Composición y Ergonomía</h2>
+        <div class="grid-composition">
+            <div class="grid-item" onclick="openLightbox(this)">
+                <img src="LATERAL ROPERO MEJORADO.jpg" alt="Perfil lateral del ropero">
+                <span class="caption">Modularidad</span>
+            </div>
+            <div class="grid-item" onclick="openLightbox(this)">
+                <img src="TOMA FRONTAL CERCA MEJORADO.jpg" alt="Vista frontal cercana">
+                <span class="caption">Organización Ergonómica</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="container fade-in">
+        <h2>Experiencia Espacial</h2>
+        <div class="video-wrapper">
+            <video controls poster="TOMA FRENTAL GENERAL MEJORADO.jpg">
+                <source src="WhatsApp Video 2025-11-30 at 7.00.29 PM.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de video.
+            </video>
+            <span class="caption" style="text-align: center;">Recorrido dinámico de la experiencia espacial real.</span>
+        </div>
+    </section>
+
+    <footer class="fade-in">
+        <div class="container">
+            <h3 class="footer-name">Alfredo Alonzo Espinoza Barandiaran</h3>
+            <p class="footer-role">Arquitectura & Diseño Interior</p>
+            
+            <div class="contact-divider"></div>
+            
+            <div class="contact-info">
+                <span>Contacto Directo:</span>
+                <a href="tel:+51989551575" class="contact-item">989 551 575</a>
+                <a href="tel:+51939831604" class="contact-item">939 831 604</a>
+            </div>
+
+            <p style="font-size: 0.7rem; margin-top: 4rem; color: #ccc;">
+                &copy; 2025 Alfredo Alonzo Espinoza Barandiaran. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Vista completa">
+    </div>
+
+    <script>
+        // Observador para animaciones al hacer scroll (Fade-in)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Animar solo una vez
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Funcionalidad del Lightbox (Ver imágenes en grande)
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            if (img) {
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Evitar scroll
+            }
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restaurar scroll
+        }
+
+        // Cerrar con tecla Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
